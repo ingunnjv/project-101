@@ -1,5 +1,4 @@
-/** TODO when everything is done, this test can test your employee endpoints. It will probably not compile due to naming. Fix as needed
- * package no.acntech.project101.web.employee.resources;
+package no.acntech.project101.web.employee.resources;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -48,10 +47,10 @@ class EmployeeResourceIT {
     @Test
     void findAll() {
         final Company acme = companyService.save(new Company("ACME", "123456789"));
-        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1));
-        ken.setCompany(acme);
-        final Employee tor = new Employee("Tor", "Divel", LocalDate.of(1994, 10, 1));
-        tor.setCompany(acme);
+        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1), 1L);
+//        ken.setCompany(acme);
+        final Employee tor = new Employee("Tor", "Divel", LocalDate.of(1994, 10, 1), 1L);
+//        tor.setCompany(acme);
 
         employeeService.save(ken);
         employeeService.save(tor);
@@ -78,8 +77,8 @@ class EmployeeResourceIT {
     void findById() {
         final Company acme = companyService.save(new Company("ACME", "123456789"));
 
-        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1));
-        ken.setCompany(acme);
+        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1), 1L);
+//        ken.setCompany(acme);
         final Employee savedKen = employeeService.save(ken);
 
 
@@ -119,8 +118,8 @@ class EmployeeResourceIT {
     @Test
     void deleteEmployee() {
         final Company acme = companyService.save(new Company("ACME", "123456789"));
-        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1));
-        ken.setCompany(acme);
+        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1), 1L);
+//        ken.setCompany(acme);
         final Employee savedKen = employeeService.save(ken);
 
         ResponseEntity response = testRestTemplate.exchange(
@@ -132,4 +131,3 @@ class EmployeeResourceIT {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
     }
 }
-*/

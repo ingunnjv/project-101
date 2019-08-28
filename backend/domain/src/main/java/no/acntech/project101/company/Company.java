@@ -30,7 +30,6 @@ public class Company {
         this.orgNr = orgNr;
     }
 
-
     public Long getId() {
         return id;
     }
